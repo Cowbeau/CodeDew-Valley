@@ -19,7 +19,7 @@ class Level:
         self.create_map()
 
     def create_map(self):
-        layouts = {
+        # layouts = {
                 'boundary': import_csv_layout('/home/beaum/Documents/Coding Projects/Python Projects/Legend Of DarkZouls/map/map_FloorBlocks.csv'), 
                 'grass': import_csv_layout('/home/beaum/Documents/Coding Projects/Python Projects/Legend Of DarkZouls/map/map_Grass.csv'),
                 'object': import_csv_layout('/home/beaum/Documents/Coding Projects/Python Projects/Legend Of DarkZouls/map/map_LargeObjects.csv')
@@ -32,15 +32,16 @@ class Level:
 
         for style,layout in layouts.items():
             for row_index, row in enumerate(layout):
-                for col_index, col in enumerate(row):
+            #   for col_index, col in enumerate(row):
                     if col != '-1':
-                        x = col_index * TILESIZE
-                        y = row_index * TILESIZE
-                        if style == 'boudary':
-                            Tile((x,y),[self.obstacle_sprites],'invisible')
-                        if style == 'grass':
-                            random_grass_image = choice(graphics['grass'])
+                #       x = col_index * TILESIZE
+                #       y = row_index * TILESIZE
+                #       if style == 'boudary':
+                #           Tile((x,y),[self.obstacle_sprites],'invisible')
+                #       if style == 'grass':
+        #                   random_grass_image = choice(graphics['grass'])
                             Tile((x,y),[self.visible_sprites, self.obstacle_sprites],'grass',random_grass_image)
+        self.player = Player((2000,1430),[self.visible_sprites],self.obstacle_sprites)
 
                             
                         if style == 'object':
