@@ -66,12 +66,6 @@ class UI:
         
         self.display_surface.blit(weapon_surf,weapon_rect)
 
-    def magic_overlay(self,magic_index,has_switched):
-        bg_rect = self.selection_box(80,635,has_switched)
-        magic_surf = self.magic_graphics[magic_index]
-        magic_rect = magic_surf.get_rect(center = bg_rect.center)
-
-        self.display_surface.blit(magic_surf,magic_rect)
 
     def display(self,player):
         self.show_bar(player.health,player.stats['health'],self.health_bar_rect,HEALTH_COLOR)

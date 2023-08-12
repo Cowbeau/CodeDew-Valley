@@ -4,7 +4,7 @@ from support import import_folder
 from entity import Entity
 
 class Player(Entity):
-    def __init__(self,pos,groups,obstacle_sprites,create_attack,destroy_attack,create_magic):
+    def __init__(self,pos,groups,obstacle_sprites,create_attack,destroy_attack,create_magic,create_magic):
         super().__init__(groups)
         self.image = pygame.image.load('/home/beaum/Documents/Coding Projects/Python Projects/Legend Of DarkZouls/graphics/test/player.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
@@ -17,7 +17,7 @@ class Player(Entity):
         # movement
         self.attacking = False
         self.attack_cooldown = 400
-        self.attack_time = None
+        self.attack_time = Nones
         
 
         self.obstacle_sprites = obstacle_sprites
@@ -31,13 +31,6 @@ class Player(Entity):
         self.weapon_switch_time = None
         self.switch_duration_cooldown = 200
 
-        # magic
-        self.create_magic = create_magic
-        self.magic_index = 0
-        self.can_switch_magic = list(magic_data.keys())[self.magic_index]
-        self.can_switch_magic = True
-        self.magic_switch_time = None
-
         # stats
         self.stats = {'health': 100,'energy': 60,'attack': 10,'magic': 4,'speed': 5}
         self.health = self.stats ['health']
@@ -45,7 +38,9 @@ class Player(Entity):
         self.exp = 123
         self.speed = self.stats ['speed']
 
-    def import_player_assets(self):
+
+
+        def import_player_assets(self):
             character_path = '/home/beaum/Documents/Coding Projects/Python Projects/Legend Of DarkZouls/graphics/player/'
             self.animations = {'up':[],'down':[],'left':[],'right':[],
             'right_idle':[],'left_idle':[],'up_idle':[],'down_idle':[],
@@ -55,7 +50,9 @@ class Player(Entity):
                 full_path = character_path + animation
                 self.animations[animation] = import_folder(full_path)
 
-    def input(self):
+
+
+        def input(self):
             if not self.attacking:
                 keys = pygame.key.get_pressed()
 
@@ -105,7 +102,7 @@ class Player(Entity):
 
                 self.weapon = list(weapon_data.keys())[self.weapon_index]
 
-    def get_status(self):
+        def get_status(self):
 
             # idle status
             if self.direction.x == 0 and self.direction.y == 0:
@@ -123,7 +120,8 @@ class Player(Entity):
             else:
                 if 'attack' in self.status:
                     self.status = self.status.replace('_attack','')
-    def move(self,speed):
+
+        def move(self,speed):
             if self.direction.magnitude() != 0:
                 self.direction.normalize()
 
@@ -132,8 +130,9 @@ class Player(Entity):
             self.hitbox.y += self.direction.y * speed
             self.collision('vertical')
             self.rect.center = self.hitbox.center
+            
 
-    def collision(self,direction):
+        def collision(self,direction):
                 if direction == 'horizontal':
                     for sprite in self.obstacle_sprites:
                         if sprite.hitbox.colliderect(self.hitbox):
@@ -161,13 +160,9 @@ class Player(Entity):
             if  not self.can_switch_weapon:
                 if current_time - self.weapon_switch_time >= self.switch_duration_cooldown:
                     self.can_switch_weapon = True
-            
-            if not self.can_switch_magic:
-                if current_time - self.magic_switch_time >= self.switch_duration_cooldown:
-                    self.can_switch_magic = True
 
-    def animate(self):
-            animation = self.animations[self.status]
+        def animate(self):
+            animation = self.animations[self.satus]
 
             # loop over frame index
             self.frame_index += self.animation_speed
