@@ -9,3 +9,4 @@ Project Files for a StarDew Valley inspired Python game. The game contains eleme
 
 Credits to clear-code-projects for creation and tutorial. 
 
+Credits to CUP NOOBLE for asset pack
