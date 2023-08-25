@@ -61,19 +61,20 @@ class Level:
                         if style == 'grass':
                             random_grass_image = choice(graphics['grass'])
                             Tile((x,y),
-                            [self.visible_sprites, self.obstacle_sprites,self.attackable_sprites],
+                            [self.visible_sprites,self.obstacle_sprites,self.attackable_sprites],
                             'grass',random_grass_image)
-
-                            
                         if style == 'object':
                             surf = graphics['objects'][int(col)]
-                            Tile((x,y),[self.visible_sprites,self.obstacle_sprites],'object',surf)
+                            Tile((x,y),
+                            [self.visible_sprites,self.obstacle_sprites],
+                            'object',
+                            surf)
                         
                         if style == 'entities':
                             if col == '394':
                                 self.player = Player(
-                                    (x,y),
-                                    [self.visible_sprites],
+                                    (2000,1430),
+                                   [self.visible_sprites],
                                     self.obstacle_sprites,
                                     self.create_attack,
                                     self.destroy_attack,
