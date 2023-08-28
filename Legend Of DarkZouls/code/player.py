@@ -4,7 +4,7 @@ from support import import_folder
 from entity import Entity
 
 class Player(Entity):
-    def __init__(self,pos,groups,obstacle_sprites,create_attack,destroy_attack,create_magic,create_magic):  # noqa: E501
+    def __init__(self,pos,groups,obstacle_sprites,create_attack,destroy_attack,create_magic,create_magic):  # noqa: E501, E999
         super().__init__(groups)
         self.image = pygame.image.load('/home/beaum/Documents/Coding Projects/Python Projects/Legend Of DarkZouls/graphics/test/player.png').convert_alpha()  # noqa: E501
         self.rect = self.image.get_rect(topleft = pos)
