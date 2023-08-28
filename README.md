@@ -1,6 +1,6 @@
-git add/rm readme.md 
-# Legend-Of-DarkZouls
-This project is a Legend Of Zelda/Dark Souls style game I am using to learn Python. The game contains elements including:
+# CodeDew-Valley
+
+This project is a Stardew Valley style game I am using to learn Python. The game contains elements including:
 
 * Graphics
 
@@ -8,17 +8,17 @@ This project is a Legend Of Zelda/Dark Souls style game I am using to learn Pyth
 
 * Fake Depth
 
-* Upgrade system and mechanics with a pause/upgrade menu
+* Day/Night Cycle
 
-* Level Map
+* Farming and Foraging
 
-* Weapons and Magic
+* Weather System
 
-* Magic System
+* Merchant 
 
-* User Interface
+* Player Interactions
 
-* Player and enemy interactions
+* Inventory System
 
 * Particle Effects
 
@@ -28,4 +28,4 @@ This project is a Legend Of Zelda/Dark Souls style game I am using to learn Pyth
 Credits to clear-code-projects for creation and tutorial. 
 
 
-Credits to Pixel-Boy and AAA for art pack.
+Credits to Cup Nooble for asset pack.
